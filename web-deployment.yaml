@@ -1,5 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
+metadata:
+  name: web
 spec:
   replicas: 1
   selector:
@@ -7,6 +9,10 @@ spec:
       io.kompose.service: web
   strategy: {}
   template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: web
     spec:
       containers:
         - env:
